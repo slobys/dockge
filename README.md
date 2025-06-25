@@ -1,6 +1,6 @@
 # Dcoker一键安装
 ## 脚本功能
-* 一键安装Docker和独立版Docker-Compose
+* 一键安装Dockge
 
 ## 安装git
 ### Debian和Ubuntu系统
@@ -23,7 +23,7 @@ sudo yum update -y
 ```
 ## 一键脚本
 ```bash
-sudo apt install git -y && git clone https://github.com/slobys/docker.git && cd docker && chmod +x docker.sh && ./docker.sh
+sudo apt install git -y && git clone https://github.com/slobys/dockge.git && cd docker && chmod +x dockge.sh && ./dockge.sh
 ```
 
   
