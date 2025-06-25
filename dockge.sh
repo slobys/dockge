@@ -37,4 +37,4 @@ echo "🚀 使用 Docker Compose 启动 Dockge 服务..."
 sudo docker-compose up -d
 
 echo "✅ Dockge 安装并启动完成！"
-echo "🔹 请访问 http://localhost:8000 查看 Dockge 界面"
+echo "🔹 请访问 http://localhost:5001 查看 Dockge 界面"
