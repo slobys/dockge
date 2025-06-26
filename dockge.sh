@@ -22,7 +22,7 @@ echo "✅ Docker 和 Docker Compose 安装完成！"
 echo "🔹 Docker 版本："
 docker --version
 echo "🔹 Docker Compose 版本："
-docker-compose --version
+docker compose version
 
 echo "🚀 开始安装 Dockge..."
 
@@ -30,14 +30,11 @@ DOCKGE_DIR="$HOME/dockge"
 mkdir -p "$DOCKGE_DIR"
 cd "$DOCKGE_DIR"
 
-echo "🔹 下载 Dockge docker-compose.yml 配置文件..."
-curl https://raw.githubusercontent.com/louislam/dockge/master/compose.yaml --output compose.yaml
-
-echo "🔹 修改 docker-compose.yml 端口映射为 5001:8000 ..."
-sed -i 's/8000:8000/5001:8000/' docker-compose.yml
+echo "🔹 下载 Dockge docker-compose 配置文件..."
+curl -fsSL https://raw.githubusercontent.com/louislam/dockge/master/compose.yaml --output compose.yaml
 
 echo "🚀 使用 Docker Compose 启动 Dockge 服务..."
-sudo docker-compose up -d
+docker compose up -d
 
 # 获取服务器公网IP，失败则获取内网IP
 IP=$(curl -s https://api.ipify.org || hostname -I | awk '{print $1}')
