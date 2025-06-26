@@ -1,4 +1,4 @@
-# Dcoker一键安装
+# Dcokge面板一键安装
 ## 脚本功能
 * 一键安装Dockge
 
