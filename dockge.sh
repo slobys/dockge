@@ -31,7 +31,7 @@ mkdir -p "$DOCKGE_DIR"
 cd "$DOCKGE_DIR"
 
 echo "🔹 下载 Dockge docker-compose.yml 配置文件..."
-curl -fsSL https://raw.githubusercontent.com/dockge/dockge/main/docker-compose.yml -o docker-compose.yml
+curl https://raw.githubusercontent.com/louislam/dockge/master/compose.yaml --output compose.yaml
 
 echo "🔹 修改 docker-compose.yml 端口映射为 5001:8000 ..."
 sed -i 's/8000:8000/5001:8000/' docker-compose.yml
