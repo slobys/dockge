@@ -31,10 +31,17 @@ mkdir -p "$DOCKGE_DIR"
 cd "$DOCKGE_DIR"
 
 echo "🔹 下载 Dockge docker-compose.yml 配置文件..."
-curl https://raw.githubusercontent.com/louislam/dockge/master/compose.yaml --output compose.yaml
+curl -fsSL https://raw.githubusercontent.com/dockge/dockge/main/docker-compose.yml -o docker-compose.yml
+
+echo "🔹 修改 docker-compose.yml 端口映射为 5001:8000 ..."
+sed -i 's/8000:8000/5001:8000/' docker-compose.yml
 
 echo "🚀 使用 Docker Compose 启动 Dockge 服务..."
 sudo docker-compose up -d
 
+# 获取服务器公网IP，失败则获取内网IP
+IP=$(curl -s https://api.ipify.org || hostname -I | awk '{print $1}')
+
 echo "✅ Dockge 安装并启动完成！"
-echo "🔹 请访问 http://localhost:5001 查看 Dockge 界面"
+echo "🔹 请访问以下地址打开 Dockge 界面："
+echo "➡️  http://$IP:5001"
